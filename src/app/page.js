@@ -6,7 +6,6 @@ import { ArrowRightIcon } from "@radix-ui/react-icons";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { useState } from "react";
-import Footer from "@/components/Footer";
 
 export default function Home() {
   const [copied, setCopied] = useState(false);

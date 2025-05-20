@@ -1,5 +1,4 @@
 // src/components/Navbar.js
-"use client";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -8,7 +7,7 @@ import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 
-export default function Navbar() {
+export default function Navbar () {
   const pathname = usePathname();
   const { theme, setTheme } = useTheme();
   

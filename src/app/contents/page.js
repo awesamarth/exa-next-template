@@ -108,7 +108,7 @@ const result = await exa.getContents(
 
                     <button 
                         onClick={() => setShowAdvanced(!showAdvanced)}
-                        className="text-sm font-medium flex items-center gap-1 w-fit"
+                        className="text-sm hover:cursor-pointer font-medium flex items-center gap-1 w-fit"
                     >
                         <svg 
                             width="12" 

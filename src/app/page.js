@@ -6,6 +6,7 @@ import { ArrowRightIcon } from "@radix-ui/react-icons";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { useState } from "react";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   const [copied, setCopied] = useState(false);
@@ -23,7 +24,7 @@ export default function Home() {
     }, 2000);
   };
 
-  const codeExample = `// In your backend (route.ts)
+  const codeExample = `// In your backend (route.js)
 import { Exa } from 'exa-js'
 
 // Initialize the Exa client
@@ -144,7 +145,7 @@ const results = await exa.search('latest developments in ML', {
                   icon: "📄",
                 },
                 {
-                  title: "FINDSIMILAR",
+                  title: "FIND SIMILAR",
                   description: "Based on a link, find and return pages that are similar in meaning.",
                   link: "/findsimilar",
                   icon: "🔗",
@@ -253,48 +254,6 @@ const results = await exa.search('latest developments in ML', {
         </section>
       </main>
 
-      {/* Footer */}
-      <footer className="py-8 border-t border-border/40">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="flex items-center gap-2">
-            <Image
-              src="/exa-logo.png"
-              alt="Exa AI Logo"
-              width={22}
-              height={22}
-            />
-            <span className="text-base text-muted-foreground">
-              © {new Date().getFullYear()} Exa Next.js Starter
-            </span>
-          </div>
-          <div className="flex gap-8">
-            <Link
-              href="https://docs.exa.ai"
-              className="text-base text-muted-foreground hover:text-foreground transition-colors"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Documentation
-            </Link>
-            <Link
-              href="https://github.com/awesamarth/create-exa-app"
-              className="text-base text-muted-foreground hover:text-foreground transition-colors"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              GitHub
-            </Link>
-            <Link
-              href="https://exa.ai"
-              className="text-base text-muted-foreground hover:text-foreground transition-colors"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Exa AI
-            </Link>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }

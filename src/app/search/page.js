@@ -72,9 +72,9 @@ const result = await exa.searchAndContents(
     };
 
     return (
-        <div className="min-h-screen p-8 pb-20 gap-16 sm:p-20 ">
+        <div className="min-h-screen p-8  pb-20 gap-16 sm:p-20 md:py-28 ">
             <main className="flex flex-col gap-4 max-w-5xl mx-auto">
-                <h1 className="text-3xl sm:text-5xl mb-2 font-[family-name:var(--font-newsreader)]">Exa AI Search</h1>
+                <h1 className="text-3xl sm:text-5xl mb-2 font-[family-name:var(--font-newsreader)]">Exa AI <span className="text-[#3353F4]">Search</span></h1>
 
                 <div className="mb-2">
                     <p className="text-lg mb-2">
@@ -96,7 +96,7 @@ const result = await exa.searchAndContents(
                         <button
                             onClick={handleSearch}
                             disabled={loading}
-                            className="rounded-full border border-solid border-transparent transition-colors 
+                            className="rounded-sm hover:cursor-pointer border border-solid border-transparent transition-colors 
                         flex items-center justify-center bg-foreground text-background gap-2 
                         hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base 
                         h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
@@ -105,7 +105,7 @@ const result = await exa.searchAndContents(
                         </button>
                     </div>
 
-                    <div className="bg-black/[.05] dark:bg-white/[.06] p-4 rounded-md overflow-auto relative">
+                    <div className="bg-[#131313] p-4 rounded-md overflow-auto relative">
                         <button
                             onClick={() => {
                                 navigator.clipboard.writeText(codeExample);
@@ -132,8 +132,9 @@ const result = await exa.searchAndContents(
                             showLineNumbers={true}
                             customStyle={{
                                 margin: 0,
-                                backgroundColor: 'transparent',
-                                fontSize: '1rem'
+                                borderRadius: '0.5rem',
+                                fontSize: '1rem',
+                                backgroundColor: '#131313'
                             }}
                             codeTagProps={{
                                 style: {
@@ -162,7 +163,7 @@ const result = await exa.searchAndContents(
                             <h2 className="text-xl font-bold">Search Results</h2>
                             <button
                                 onClick={copyResults}
-                                className="bg-gray-700 hover:bg-gray-600 text-white rounded px-3 py-1.5 text-sm opacity-80 hover:opacity-100 transition-all flex items-center gap-1"
+                                className="bg-gray-700 hover:cursor-pointer hover:bg-gray-600 text-white rounded px-3 py-1.5 text-sm opacity-80 hover:opacity-100 transition-all flex items-center gap-1"
                                 aria-label="Copy results"
                             >
                                 {resultsCopied ? (
@@ -183,7 +184,7 @@ const result = await exa.searchAndContents(
                                 )}
                             </button>
                         </div>
-                        
+
                         <div className="space-y-4 mb-4">
                             {results.results && results.results.map((result, index) => (
                                 <div key={index} className="border border-black/[.08] dark:border-white/[.145] rounded-lg p-4 hover:border-black/[.15] dark:hover:border-white/[.25] transition-all">
@@ -191,19 +192,19 @@ const result = await exa.searchAndContents(
                                         <h3 className="font-bold text-lg">{result.title || 'Untitled'}</h3>
                                         <span className="text-sm opacity-60">{result.score ? `Score: ${result.score.toFixed(2)}` : ''}</span>
                                     </div>
-                                    
+
                                     <div className="flex flex-wrap gap-2 mb-2 text-sm">
                                         {result.url && (
-                                            <a 
-                                                href={result.url} 
-                                                target="_blank" 
+                                            <a
+                                                href={result.url}
+                                                target="_blank"
                                                 rel="noopener noreferrer"
                                                 className="text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1"
                                             >
                                                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M18 13V19C18 19.5304 17.7893 20.0391 17.4142 20.4142C17.0391 20.7893 16.5304 21 16 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V8C3 7.46957 3.21071 6.96086 3.58579 6.58579C3.96086 6.21071 4.46957 6 5 6H11" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                                                    <path d="M15 3H21V9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                                                    <path d="M10 14L21 3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                                    <path d="M18 13V19C18 19.5304 17.7893 20.0391 17.4142 20.4142C17.0391 20.7893 16.5304 21 16 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V8C3 7.46957 3.21071 6.96086 3.58579 6.58579C3.96086 6.21071 4.46957 6 5 6H11" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                                    <path d="M15 3H21V9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                                    <path d="M10 14L21 3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                                                 </svg>
                                                 {formatUrl(result.url)}
                                             </a>
@@ -219,29 +220,29 @@ const result = await exa.searchAndContents(
                                             </span>
                                         )}
                                     </div>
-                                    
+
                                     {result.text && (
                                         <>
                                             <p className="text-sm line-clamp-3 mb-2">
                                                 {result.text.substring(0, 200)}...
                                             </p>
-                                            <button 
+                                            <button
                                                 onClick={() => setExpandedResult(expandedResult === index ? null : index)}
                                                 className="text-sm text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1"
                                             >
                                                 {expandedResult === index ? 'Show Less' : 'Show More'}
-                                                <svg 
-                                                    width="12" 
-                                                    height="12" 
-                                                    viewBox="0 0 24 24" 
-                                                    fill="none" 
+                                                <svg
+                                                    width="12"
+                                                    height="12"
+                                                    viewBox="0 0 24 24"
+                                                    fill="none"
                                                     xmlns="http://www.w3.org/2000/svg"
                                                     className={`transition-transform ${expandedResult === index ? 'rotate-180' : ''}`}
                                                 >
-                                                    <path d="M19 9L12 16L5 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                                    <path d="M19 9L12 16L5 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                                                 </svg>
                                             </button>
-                                            
+
                                             {expandedResult === index && (
                                                 <div className="mt-3 bg-black/[.05] dark:bg-white/[.06] p-3 rounded-md max-h-[300px] overflow-y-auto font-[family-name:var(--font-geist-mono)] text-sm">
                                                     {result.text}
@@ -252,7 +253,7 @@ const result = await exa.searchAndContents(
                                 </div>
                             ))}
                         </div>
-                        
+
                         <details className="mt-4">
                             <summary className="cursor-pointer p-2 bg-black/[.05] dark:bg-white/[.06] rounded-md mb-2 font-medium">
                                 View Raw JSON Response
@@ -296,7 +297,7 @@ const result = await exa.searchAndContents(
                             </div>
                         </li>
                         <li>
-                            Edit the API route at <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)]">/api/search/route.ts</code>
+                            Edit the API route at <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)]">/api/search/route.js</code>
                         </li>
                         <li>
                             Customize search parameters in the API route to adjust result count, format, or search type

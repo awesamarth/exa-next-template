@@ -20,12 +20,12 @@ export default function Navbar() {
     { name: "Home", path: "/" },
     { name: "Search", path: "/search" },
     { name: "Contents", path: "/contents" },
-    { name: "Find Similar", path: "/findsimilar" },
+    { name: "Find Similar", path: "/find-similar" },
     { name: "Answer", path: "/answer" },
   ];
 
   return (
-    <nav className="border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <nav className="fixed flex  w-full border-b border-border/40 bg-background z-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl flex h-16 items-center justify-between">
         <div className="flex items-center gap-6">
           <Link href="/" className="flex items-center space-x-2 mr-2">

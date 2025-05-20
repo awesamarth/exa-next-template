@@ -1,8 +1,7 @@
-// src/app/api/search/route.ts
 import { NextResponse } from 'next/server';
 import Exa from 'exa-js';
 
-export async function POST(request: Request) {
+export async function POST(request) {
   try {
     // Parse the request body
     const { query } = await request.json();
@@ -12,7 +11,7 @@ export async function POST(request: Request) {
     }
 
     // Initialize Exa with API key from environment variables
-    const exa = new Exa(process.env.EXA_API_KEY as string);
+    const exa = new Exa(process.env.EXA_API_KEY);
     
     if (!process.env.EXA_API_KEY) {
       return NextResponse.json(
@@ -32,7 +31,7 @@ export async function POST(request: Request) {
     );
 
     return NextResponse.json(results);
-  } catch (error: any) {
+  } catch (error) {
     console.error('Error in Exa search API:', error);
     return NextResponse.json(
       { error: error.message || 'Failed to perform search' }, 

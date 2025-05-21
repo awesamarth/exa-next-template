@@ -53,7 +53,7 @@ export default function Navbar () {
         </div>
         
         <div className="flex items-center gap-3">
-          <Link href="https://github.com/yourusername/create-exa-app" target="_blank" rel="noopener noreferrer">
+          <Link href="https://github.com/awesamarth/create-exa-app" target="_blank" rel="noopener noreferrer">
             <Button variant="ghost" size="icon" className="h-10 w-10 hover:cursor-pointer" aria-label="GitHub Repository">
               <svg viewBox="0 0 24 24" className="h-6 w-6">
                 <path
